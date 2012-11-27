@@ -1,0 +1,33 @@
+{
+    "name": "ghurls",
+    "version": "1.0.0",
+    "description": "Shorten your Github repo url with Github's Git.io service.",
+    "keywords": [
+        "github",
+        "git.io",
+        "shortener",
+        "url"
+    ],
+    "author": {
+        "name": "Ryan Fitzer",
+        "email": "ryan@ryanfitzer.com"
+    },
+    "bin": "./main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ryanfitzer/ghurls.git"
+    },
+    "dependencies": {
+        "commander": "1.x"
+    },
+    "main": "main",
+    "engines": {
+        "node": ">= 0.8.x"
+    },
+    "readme": "# ghurls #\n\nShorten your Github repo urls with Github's [Git.io](http://git.io) service.\n\n\n## Features ##\n\n- Pastes the url to your clipboard\n- Opens the url in your default browser\n\n\n## Installation ##\n\n    $ npm install ghurls\n\n\n## Usage ##\n\n    var ghurls = require( 'ghurls' );\n\n    ghurls( url );\n\n\n## Command Line Usage ##\n\nInstalling the module locally ([without the `-g` flag](https://npmjs.org/doc/install.html)) requires a little more verbosity:\n\n    $ node path/to/ghurls [url]\n\nWith a global installation:\n\n    $ npm install -g ghurls\n\nYou can use it like any other command:\n\n    $ ghurls [url]\n\n\n## Known Issues ##\n\nSo far it only works on OSX (uses the `echo` and `pbcopy` unix commands). Support for other platforms coming soon.",
+    "_id": "ghurls@1.0.0",
+    "dist": {
+      "shasum": "76914aad9240db493c907aedf6eec3ac1a68fb0d"
+    },
+    "_from": "/Users/rfitze/bash_functions/ghurls"
+}
