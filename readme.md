@@ -1,4 +1,4 @@
-# ghurls #
+# gus #
 
 Shorten your Github repo urls with Github's [Git.io](http://git.io) service.
 
@@ -11,29 +11,29 @@ Shorten your Github repo urls with Github's [Git.io](http://git.io) service.
 
 ## Installation ##
 
-    $ npm install ghurls
+    $ npm install gus
 
 
 ## Usage ##
 
-    var ghurls = require( 'ghurls' );
+    var gus = require( 'gus' );
 
-    ghurls( url );
+    gus( url );
 
 
 ## Command Line Usage ##
 
 Installing the module locally ([without the `-g` flag](https://npmjs.org/doc/install.html)) requires a little more verbosity:
 
-    $ node path/to/ghurls [url]
+    $ node path/to/gus [url]
 
 With a global installation:
 
-    $ npm install -g ghurls
+    $ npm install -g gus
 
 You can use it like any other command:
 
-    $ ghurls [url]
+    $ gus [url]
 
 
 ## Known Issues ##

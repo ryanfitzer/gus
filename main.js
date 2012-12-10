@@ -2,7 +2,7 @@
 /**
  * GitHub URL Shortener
  * 
- * Shorten your long-ass repo url with Github's Git.io service.
+ * Shorten your long repo urls with Github's Git.io service.
  * Pastes the url to the clipboard and opens it in your browser.
  * 
  * @link https://github.com/blog/985-git-io-github-url-shortener
@@ -18,7 +18,7 @@ program
   .usage( '[github url]' )
   .parse( process.argv );
 
-function ghurls( url ) {
+function gus( url ) {
     
     var request
         , url = url || program.args[0]
@@ -73,7 +73,7 @@ function fail( code ) {
     console.log( 'There was a problem. The response status was ' + code );
 }
 
-module.exports = ghurls;
+module.exports = gus;
 
 // Call directly if used from shell
-if ( program.args.length ) ghurls();
+if ( program.args.length ) gus();
