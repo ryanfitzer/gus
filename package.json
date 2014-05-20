@@ -1,6 +1,6 @@
 {
     "name": "gus",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Shorten your Github repo url with Github's Git.io service.",
     "keywords": [
         "github",
@@ -13,6 +13,7 @@
         "email": "ryan@ryanfitzer.com"
     },
     "bin": "./main.js",
+    "main": "main",
     "repository": {
         "type": "git",
         "url": "https://github.com/ryanfitzer/gus.git"
@@ -20,14 +21,8 @@
     "dependencies": {
         "commander": "1.x"
     },
-    "main": "main",
     "engines": {
         "node": ">= 0.8.x"
     },
-    "readme": "# gus #\n\nShorten your Github repo urls with Github's [Git.io](http://git.io) service.\n\n\n## Features ##\n\n- Pastes the url to your clipboard\n- Opens the url in your default browser\n\n\n## Installation ##\n\n    $ npm install gus\n\n\n## Usage ##\n\n    var gus = require( 'gus' );\n\n    gus( url );\n\n\n## Command Line Usage ##\n\nInstalling the module locally ([without the `-g` flag](https://npmjs.org/doc/install.html)) requires a little more verbosity:\n\n    $ node path/to/gus [url]\n\nWith a global installation:\n\n    $ npm install -g gus\n\nYou can use it like any other command:\n\n    $ gus [url]\n\n\n## Known Issues ##\n\nSo far it only works on OSX (uses the `echo` and `pbcopy` unix commands). Support for other platforms coming soon.",
-    "_id": "gus@1.0.0",
-    "dist": {
-      "shasum": "76914aad9240db493c907aedf6eec3ac1a68fb0d"
-    },
-    "_from": "/Users/rfitze/bash_functions/gus"
+    "readme": "# gus #\n\nShorten your Github repo urls with Github's [Git.io](http://git.io) service.\n\n\n## Features ##\n\n- Pastes the url to your clipboard\n- Opens the url in your default browser\n\n\n## Installation ##\n\n    $ npm install gus\n\n\n## Usage ##\n\n    var gus = require( 'gus' );\n\n    gus( url );\n\n\n## Command Line Usage ##\n\nInstalling the module locally ([without the `-g` flag](https://npmjs.org/doc/install.html)) requires a little more verbosity:\n\n    $ node path/to/gus [url]\n\nWith a global installation:\n\n    $ npm install -g gus\n\nYou can use it like any other command:\n\n    $ gus [url]\n\n\n## Known Issues ##\n\nSo far it only works on OSX (uses the `open` and `pbcopy` unix commands).\n"
 }

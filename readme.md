@@ -38,4 +38,4 @@ You can use it like any other command:
 
 ## Known Issues ##
 
-So far it only works on OSX (uses the `echo` and `pbcopy` unix commands). Support for other platforms coming soon.
+So far it only works on OSX (uses the `open` and `pbcopy` unix commands).
