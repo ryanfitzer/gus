@@ -10,13 +10,12 @@
 
 var http = require( 'http' )
     , childp = require( 'child_process' )
-    , program = require( 'commander' )
     , querystring = require( 'querystring' )
+    , program = require( 'commander' )
     ;
 
-program
-  .usage( '[github url]' )
-  .parse( process.argv );
+program.usage( '[github url]' );
+program.parse( process.argv );
 
 function gus( url ) {
     
@@ -24,15 +23,23 @@ function gus( url ) {
         , url = url || program.args[0]
         , encoded = querystring.encode( { url: url } )
         ;
-        
-    request = http.request({
+    
+    var options = {
         host: 'git.io',
         method: 'POST',
         headers: {
+            'Connection': 'close',
             'Content-Length': encoded.length
         }
-    }, handler );
-
+    };
+       
+    request = http.request( options, handler );
+    
+    request.on( 'error', function(e) {
+        throw new Error( 'problem with request: ' + e.message );
+    });
+    
+    // Pass in the URL to shorten and then end the request
     request.write( encoded );
     request.end();
 }
@@ -47,33 +54,32 @@ function handler( data ) {
     good = codes.some( function( code ) {
         return status <= code;
     });
-    
+
     if ( good ) success( data.headers.location );
     else fail( status );
 }
 
 function success( newUrl ) {
     
-    var echo = childp.spawn( 'echo', [ '-n', newUrl ] )
-        , pbcopy = childp.spawn( 'pbcopy' )
-        ;
+    var pbcopy = childp.spawn( 'pbcopy' );
     
-    console.log(newUrl);
+    // Add to clipboard
+    pbcopy.stdin.write( newUrl );
+    pbcopy.stdin.end();
     
-    echo.stdout.on( 'data', function ( data ) {
-        pbcopy.stdin.write(data);
-        pbcopy.stdin.end();
-    });
+    // Print to the command line
+    console.log( newUrl );
     
-    childp.spawn( 'open', [ newUrl ] );
+    // Open in the browser
+    childp.exec( 'open ' + newUrl );
 }
     
 function fail( code ) {
     
-    console.log( 'There was a problem. The response status was ' + code );
+    throw new Error( 'There was a problem. The response status was ' + code );
 }
 
 module.exports = gus;
 
-// Call directly if used from shell
+// Call directly if used from command line
 if ( program.args.length ) gus();
